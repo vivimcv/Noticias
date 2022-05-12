@@ -47,7 +47,9 @@ class MainActivity : AppCompatActivity(), OnItemClickListener{
     }
     private fun getEmailPopular(){
         CoroutineScope(Dispatchers.IO).launch {
-            val call:Response<Respuesta> = getRetrofit().create(APIService::class.java).getResponse("emailed/7.json?api-key=QAZ1Wvu3QIlniUfYfo7tvGAmGB8r4lui")
+            //https://api.nytimes.com/svc/mostpopular/v2/emailed/7.json?api-key=lm7xxH8g2OvFOTFBSYNbWQSHn2acIW9D
+            //QAZ1Wvu3QIlniUfYfo7tvGAmGB8r4lui
+            val call:Response<Respuesta> = getRetrofit().create(APIService::class.java).getResponse("emailed/7.json?api-key=lm7xxH8g2OvFOTFBSYNbWQSHn2acIW9D")
             val nytResponse: Respuesta? = call.body()
             val res: List<Resultado> = nytResponse?.results ?: emptyList()
             runOnUiThread {
